@@ -1,0 +1,8 @@
+python-dotenv
+jupyterlab
+openai
+pandas
+yfinance
+matplotlib
+colorama
+ipykernel
