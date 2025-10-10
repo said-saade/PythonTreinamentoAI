@@ -169,7 +169,7 @@
     "\n",
     "file.close()\n",
     "\n",
-    "# Extrai o texto da resposta/texto\n",
+    "# Extrai o texto da resposta\n",
     "texto_resposta = mensagens.data[0].content[0].text.value\n",
     "\n",
     "# Extrai perguntas (linhas que começam com \"-\")\n",
