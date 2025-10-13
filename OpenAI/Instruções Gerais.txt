@@ -1,0 +1,87 @@
+  python -m pip list (lista todas as bibliotecas instaladas)
+  python -m(-m é para acessar um módulo)
+  python -m venv .venv(para criar um novo ambiente virtual com o nome venv) (executar em casa)
+  
+-- Inicialiazando o GIT
+(.venv) PS C:\Python> git init
+Initialized empty Git repository in C:/Python/.git/	
+
+-- Verificando o status do GIT. Repare que ele menciona os arquivos que estão no seu VSCODE mas nao esta no GIT
+(.venv) PS C:\Python> git status
+On branch master
+
+-- Digite "git add ."
+Todos os arquivos que estao na sua arvore serao adicionados ao git(desconsiderando a lista de exclusão).
+
+-- Configure no git as suas informações pessoais para fins de rastreabilidade
+--git config --global user.email said-saade@hotmail.com
+--git config --global user.name  "Said Saade"
+
+-- git commit -m "Envio do Projeto"
+[master (root-commit) b1b4588] Envio do Projeto
+1 file changed, 3 insertions(+)
+
+-- Para saber todos os commits realizados e so digitar git log. Ele retorna as informações de nome e e-mail que configurei anteriormente
+PS C:\Python> git log   
+commit b1b458866e7e8e1d75cbf6226d5f16be69e14bc3 (HEAD -> master)
+Author: Said Saade <said-saade@hotmail.com>
+Date:   Fri Sep 26 10:10:20 2025 -0300
+Envio do Projeto
+
+-- Crio uma nova branch
+git branch -M main
+
+-- Agora adiciono uma conexão remota com um alias chamado origin. Assim nao preciso mais utilizar a url extensa do GIT
+	git remote add origin https://github.com/said-saade/PythonTreinamentoAI.git
+	
+-- Desabilito o proxy, porque senao retornara um erro de conexão
+		
+	git config --global --unset http.proxy
+	git config --global --unset https.proxy
+	
+-- Agora realizo o push para a branch criada
+
+(.venv) PS C:\Python> git push -u origin main
+
+**************Procedimento padrão para publicar aquivos no git hub****************
+
+-- git add <nome do arquivo> ou "." -> Adicionara na stage o arquivo criado ou alterado
+-- git commit -m "Envio do Projeto" -> Realizar o commit da alteração no git
+-- git log (para confirmar que o commit foi executado)
+-- git push -u origin main -> subira para o github
+-- git status(para confirmar que a sua branch main esta atualizada)
+
+-- git ls-files (mostra os arquivos contidos na sua branch local)
+-- git status (mostra todos os arquivos alterados e que estao diferentes da sua branch local)
+
+-- Quando voce digita git status e aparece a mensagem abaixo, significa que o seu git local esta atualizado com o github
+	On branch main
+	Your branch is up to date with 'origin/main'.
+	
+-- Quando voce adiciona e commita um arquivo no git e digita git status, é isso que aparece.
+
+-- git status
+	On branch main
+	Your branch is ahead of 'origin/main' by 1 commit.
+	  (use "git push" to publish your local commits)
+
+-- git revert <numero do commit>
+   O git revert ele cria um novo commit desfazendo o commit especifico feito. Ele revert o commig na sua stage area e vc deve fazer o git push
+   depois. Ele é utilizado para fins de rastreabilidade sobre algo desfeito.
+   Quando voce ja fez o push para o git hub, o git revert é mais indicado.
+   
+-- git reset
+	Remove a atualização no arquivo localmente e nao deixa o historico. Se você quer voltar atrás nos commits, mas manter os arquivos modificados para revisar ou re-commitar:
+	-- git reset HEAD~2
+		Remove os últimos 2 commits.
+		Os arquivos voltam para o staging area (como se você tivesse feito git add).
+	-- git reset --hard HEAD~2
+		Se você quer apagar os commits e também desfazer as alterações nos arquivos. Isso apaga os commits e as alterações nos arquivos 
+	-- git push --force
+		Se os commits já foram enviados para o GitHub, o git reset não os remove do GitHub. Para isso, você teria que forçar o push:
+        com o git push --force. Isso envia uma foto da sua branch local para o git.
+-- git branch -D main2
+	Para deletar uma branch local ja existente.
+
+-- Esse comando conecta minha branch local a minha branch remota
+   git branch --set-upstream-to=origin2/main2 main2
