@@ -80,3 +80,7 @@ git branch -M main
 	-- git push --force
 		Se os commits já foram enviados para o GitHub, o git reset não os remove do GitHub. Para isso, você teria que forçar o push:
         com o git push --force. Isso envia uma foto da sua branch local para o git.
+		
+-- Quando o git nao retornar os arquivos após o pull...execute os passos abaixo		
+git fetch origin
+git reset --hard origin/main
