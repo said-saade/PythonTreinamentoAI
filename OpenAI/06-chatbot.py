@@ -1,3 +1,9 @@
+"""
+Nos Chatbots sempre enviamos o histórico da conversa anterior, onde o LLM utiliza como base 
+para gerar o output(resposta). O histórico não é retido na OPENAi mas sim numa variável do 
+código em execução
+Nos trechos onde temos o Append é onde as resposta e perguntas do LLM são armazenadas. O formato do código é .py
+"""
 import openai
 from dotenv import load_dotenv
 from colorama import Fore, Style, init
