@@ -1,35 +1,72 @@
+************Python**********************************
+-- Instalação de novas bibliotecas use o PIP
+	python -m pip install numpy
+
+-- Esse site é para utilizar python de forma online por exemplo, caso nao queira utilizar um compilador local
+	https://www.programiz.com/
+	
+-- O formato padrão para arquivos do python é com o sufixo .py. Mas é possível também gerar com o formato .ipynb, que é um formato mais 
+interativo que mostra o resultado imediatamente. Para utilizar esse formato é necessario instalar o jupyter
+  python -m pip install jupyter(fazer no note em casa)
+
   python -m pip list (lista todas as bibliotecas instaladas)
+  
   python -m(-m é para acessar um módulo)
+  
   python -m venv .venv(para criar um novo ambiente virtual com o nome venv) (executar em casa)
   
--- Inicialiazando o GIT
-(.venv) PS C:\Python> git init
-Initialized empty Git repository in C:/Python/.git/	
+  python -m pip freeze(mostra todas as bibliotecas e versões instaladas). O que voce pode fazer é jogar o resultado do comando freeze
+  para um arquivo (pip freeze > arquivo.txt), e num novo ambiente executar python -m pip arquivo.txt, que sera instalado todos os pacotes
+  automaticamente.
+	
+*****************Git***********************************
 
+-- Realizar o download do git através do site https://git-scm.com/downloads
+
+-- Inicialiazando o GIT
+	(.venv) PS C:\Python> git init
+    Initialized empty Git repository in C:/Python/.git/	
+	
 -- Verificando o status do GIT. Repare que ele menciona os arquivos que estão no seu VSCODE mas nao esta no GIT
-(.venv) PS C:\Python> git status
-On branch master
+   (.venv) PS C:\Python> git status
+			On branch master
+
+			No commits yet
+
+			Untracked files:
+			  (use "git add <file>..." to include in what will be committed)
+					.venv/
+					EventMonitoring/
+
+-- Antes de enviar o arquivos para o git, preciso passar pela stage area...é uma area intermediaria antes do GIT
+-- Existem alguns arquivos no VScode que vc nao precisa enviar para o git, é possível criar uma lista de exclusão.
+	- Crie um arquivo chamado .gitignore, e dentro dele coloque os diretorios e arquivos que deseja ignorar.
 
 -- Digite "git add ."
-Todos os arquivos que estao na sua arvore serao adicionados ao git(desconsiderando a lista de exclusão).
-
+   Todos os arquivos que estao na sua arvore serao adicionados ao git(desconsiderando a lista de exclusão).
+   
 -- Configure no git as suas informações pessoais para fins de rastreabilidade
---git config --global user.email said-saade@hotmail.com
---git config --global user.name  "Said Saade"
+	--git config --global user.email said-saade@hotmail.com
+	--git config --global user.name  "Said Saade"
+
+-- Agora posso subir commitar os arquivos adicionados no GIT
 
 -- git commit -m "Envio do Projeto"
-[master (root-commit) b1b4588] Envio do Projeto
-1 file changed, 3 insertions(+)
-
+	[master (root-commit) b1b4588] Envio do Projeto
+	1 file changed, 3 insertions(+)
+	
 -- Para saber todos os commits realizados e so digitar git log. Ele retorna as informações de nome e e-mail que configurei anteriormente
-PS C:\Python> git log   
-commit b1b458866e7e8e1d75cbf6226d5f16be69e14bc3 (HEAD -> master)
-Author: Said Saade <said-saade@hotmail.com>
-Date:   Fri Sep 26 10:10:20 2025 -0300
-Envio do Projeto
+	PS C:\Python> git log   
+	commit b1b458866e7e8e1d75cbf6226d5f16be69e14bc3 (HEAD -> master)
+	Author: Said Saade <said-saade@hotmail.com>
+	Date:   Fri Sep 26 10:10:20 2025 -0300
+    Envio do Projeto
+
+-- Agora preciso subir os arquivos para o github a partir do git. Depois de criar o repositorio no
+https://github.com/said-saade/PythonTreinamentoAI, por default ja é criado a branch master.  
 
 -- Crio uma nova branch
-git branch -M main
+	git branch -M main
 
 -- Agora adiciono uma conexão remota com um alias chamado origin. Assim nao preciso mais utilizar a url extensa do GIT
 	git remote add origin https://github.com/said-saade/PythonTreinamentoAI.git
@@ -38,10 +75,29 @@ git branch -M main
 		
 	git config --global --unset http.proxy
 	git config --global --unset https.proxy
-	
+
 -- Agora realizo o push para a branch criada
 
 (.venv) PS C:\Python> git push -u origin main
+warning: ----------------- SECURITY WARNING ----------------
+warning: | TLS certificate verification has been disabled! |
+warning: ---------------------------------------------------
+warning: HTTPS connections may not be secure. See https://aka.ms/gcm/tlsverify for more information.
+info: please complete authentication in your browser...
+warning: ----------------- SECURITY WARNING ----------------
+warning: | TLS certificate verification has been disabled! |
+warning: ---------------------------------------------------
+warning: HTTPS connections may not be secure. See https://aka.ms/gcm/tlsverify for more information.
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 254 bytes | 127.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/said-saade/PythonTreinamentoAI.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+***************************************************
+
+-- Voce ja pode validar que no repositorio o arquivo estara la https://github.com/said-saade/PythonTreinamentoAI
 
 **************Procedimento padrão para publicar aquivos no git hub****************
 
@@ -51,37 +107,86 @@ git branch -M main
 -- git push -u origin main -> subira para o github
 -- git status(para confirmar que a sua branch main esta atualizada)
 
--- git ls-files (mostra os arquivos contidos na sua branch local)
--- git status (mostra todos os arquivos alterados e que estao diferentes da sua branch local)
 
--- Quando voce digita git status e aparece a mensagem abaixo, significa que o seu git local esta atualizado com o github
-	On branch main
-	Your branch is up to date with 'origin/main'.
-	
--- Quando voce adiciona e commita um arquivo no git e digita git status, é isso que aparece.
+De uma olhada no WORD no menu evidencias GIT
 
--- git status
-	On branch main
-	Your branch is ahead of 'origin/main' by 1 commit.
-	  (use "git push" to publish your local commits)
+**************** Utilizar o GROQ como AI para engenharia de prompt*********************
+ 
+ 1) Criar um novo ambiente em uma nova pasta e instalar as bibliotecas com suas dependencias
+		- python -m venv .venv(power shell)
+		- mudar para unix, acessar o diretorio script e executar o ./activate
+		- criar o arquivo requirements com todos os componentes dependencias de biblioteca que precisa instalar
+			python-dotenv
+			jupyterlab
+			groq
+		- executar o comando dentro do diretorio prompts python -m pip install -r \requirements.txt
+		- Configurar o caminho onde esta instalado o jupyter lab na sua variaves de ambiente path
+					C:\Users\A0080372\AppData\Roaming\Python\Python312\Scripts
+		- No VSCode digitar na linha de comando jupyter lab. Abrira uma pagina web. No documento word
+		  esta a sessão Jupyter LAB ABERTO com o print
 
--- git revert <numero do commit>
-   O git revert ele cria um novo commit desfazendo o commit especifico feito. Ele revert o commig na sua stage area e vc deve fazer o git push
-   depois. Ele é utilizado para fins de rastreabilidade sobre algo desfeito.
-   Quando voce ja fez o push para o git hub, o git revert é mais indicado.
-   
--- git reset
-	Remove a atualização no arquivo localmente e nao deixa o historico. Se você quer voltar atrás nos commits, mas manter os arquivos modificados para revisar ou re-commitar:
-	-- git reset HEAD~2
-		Remove os últimos 2 commits.
-		Os arquivos voltam para o staging area (como se você tivesse feito git add).
-	-- git reset --hard HEAD~2
-		Se você quer apagar os commits e também desfazer as alterações nos arquivos. Isso apaga os commits e as alterações nos arquivos 
-	-- git push --force
-		Se os commits já foram enviados para o GitHub, o git reset não os remove do GitHub. Para isso, você teria que forçar o push:
-        com o git push --force. Isso envia uma foto da sua branch local para o git.
--- git branch -D main2
-	Para deletar uma branch local ja existente.
 
--- Esse comando conecta minha branch local a minha branch remota
-   git branch --set-upstream-to=origin2/main2 main2
+
+
+Descrição geral do comportamento de uma AI
+
+LLM -> Eles sao stateless e cada chamada para o modelo é uma requisição independente. Ele só se baseia no que é enviado
+pelo prompt.
+	   Dessa forma, quando retomamos uma conversa com um chat, o prompt do software usado recupera o texto anterior de alguma área
+	   e submete completamente para o LLM. O LLM nao tem capacidade infinita para processamento de texto. Existe um limite chamado
+	   janela de contexto, que é medido em tokens(pedaço de palavras). 
+	   Para conversar curtas é provavel que todo o historico de conversa seja enviado
+	   Para conversas longas existem tecnicas de armazenadomento como o Embeddings e RAG, que divide o texto em historico/pedaços menores,
+	   e salva em um vetor numérico que são armazenados em um banco de dados do PROMPT. Quando uma nova pergunta é feita, o prompt
+	   baseado nas suas credenciais, e id do prompt retomado, consegue retomar o historico.
+
+Tokens -> São as unidades de medida para o LLM. A capacidade de processamento é medida em Tokens. Logo, um texto mais complexto e mais longo
+		  gasta mais tokens do que uma pagina de texto mais simples.
+		  Quando voce submete um arquivo PDF para ser lido e processado, isso é o que ocorre:
+			1) Arquivo PDF -> Software de Extração -> Texto Bruto -> Algoritmo de Limpeza -> Texto Limpo -> Divisão em Pedaços ->
+			Lista de Pedaços de Texto -> Tokenização de cada Pedaço.
+		  
+		  
+		 Quando envio um prompt com uma pergunta e obtenho uma resposta, uma determinada quantidade de token é consumida
+		 para interpretar a pergunta e gerar a resposta. Quando envio uma segunda pergunta, todo o historico da 1 pergunta é
+		 resubmetido com a sua segunda pergunta adicionada. Uma nova resposta é gerada. Mais Tokens são consumido de forma incremental.
+		 Quando chega no limite da quantidade de tokens disponiveis(modelo ou o que?), o que o LLM faz é descartar o que foi dito no começo,
+		 para compatibilizar a quantidade de tokens. Por isso que as vezes o modelo esquece de responder algumas coisas.
+		 
+		 Em resumo
+		 Os tokens não estao diretamente relacionados a capacidade e a inteligencia do modelo(LLM). Esse resultado esta relacioado com o seu treina
+		 mento. A quantidade de Tokens é a memoria/capacidade do LLM. Uma comparação, se voce usar um LLM ruim mas com uma quantidade de tokens
+		 grande, esse modelo pode ler um livro e retornar uma informação chave que voce esta procurando, ao invez de um modelo LLM bom/inteligente
+		 que possui uma quantidade de tokens menos, com janela de contexto menor, e interpretação menor da informação compartilhada.
+		 
+		 Os tokens são definidos dentro de um modelo baseado em um equilibrio técnico,nao se pode definir
+		 qualquer quantidade de tokens para os LLMs. O valor comercial que sera vendido o produto determina a quantidade de tokens 
+		 dentro de um modelo também
+
+
+****************Apontamento AI Python*********************
+PythonTreinamentoAI -> GitHub
+main -> branch
+origin -> Apontamento github
+git remote add origin https://github.com/seu-usuario/PythonTreinamentoAI.git
+git push -u origin main
+
+****************Apontamento Hugging Face**************************
+PythonHuggingFace -> GitHub
+main -> branch
+origin2 -> Apontamento github
+git init
+git branch -M main
+git remote add origin https://github.com/seu-usuario/PythonHuggingFace.git
+git push -u origin2 main
+***************Apontamento LLM******************************
+LLM -> GitHub
+git remote add origin3 https://github.com/said-saade/LLM.git
+git init
+git branch -M main
+git remote add origin3 https://github.com/seu-usuario/LLM.git
+git push -u origin3 main
+
+
+*************Hugging Face**************************
+Hugging Face é uma plataforma de inteligencia artifical open source
