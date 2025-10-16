@@ -1,6 +1,7 @@
   python -m pip list (lista todas as bibliotecas instaladas)
   python -m(-m é para acessar um módulo)
   python -m venv .venv(para criar um novo ambiente virtual com o nome venv) (executar em casa)
+  python -m pip install -r requirements.txt
   
 -- Inicialiazando o GIT
 (.venv) PS C:\Python> git init
@@ -84,3 +85,31 @@ git branch -M main
 -- Quando o git nao retornar os arquivos após o pull...execute os passos abaixo		
 git fetch origin
 git reset --hard origin/main
+
+-- Para alterar o remote no git
+git remote set-url origin https://github.com/said-saade/PythonTreinamentoAI.git
+
+****************Apontamento AI Python*********************
+PythonTreinamentoAI -> GitHub
+main -> branch
+origin -> Apontamento github
+git init
+git remote set-url origin https://github.com/said-saade/PythonTreinamentoAI.git ou
+git remote add origin https://github.com/said-saade/PythonTreinamentoAI.git
+git push -u origin main
+
+****************Apontamento Hugging Face**************************
+PythonHuggingFace -> GitHub
+main -> branch
+origin2 -> Apontamento github
+git init
+git branch -M main
+git remote add origin https://github.com/seu-usuario/PythonHuggingFace.git
+git push -u origin2 main
+***************Apontamento LLM******************************
+LLM -> GitHub
+git remote add origin3 https://github.com/said-saade/LLM.git
+git init
+git branch -M main
+git remote add origin3 https://github.com/seu-usuario/LLM.git
+git pull origin3 main

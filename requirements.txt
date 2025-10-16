@@ -6,3 +6,5 @@ yfinance
 matplotlib
 colorama
 ipykernel
+gradio
+transformers

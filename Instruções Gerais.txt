@@ -15,6 +15,8 @@ interativo que mostra o resultado imediatamente. Para utilizar esse formato é n
   
   python -m venv .venv(para criar um novo ambiente virtual com o nome venv) (executar em casa)
   
+  python -m pip install -r requirements.txt
+  
   python -m pip freeze(mostra todas as bibliotecas e versões instaladas). O que voce pode fazer é jogar o resultado do comando freeze
   para um arquivo (pip freeze > arquivo.txt), e num novo ambiente executar python -m pip arquivo.txt, que sera instalado todos os pacotes
   automaticamente.
@@ -185,7 +187,7 @@ git remote add origin3 https://github.com/said-saade/LLM.git
 git init
 git branch -M main
 git remote add origin3 https://github.com/seu-usuario/LLM.git
-git push -u origin3 main
+git pull origin3 main
 
 
 *************Hugging Face**************************
