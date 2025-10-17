@@ -134,7 +134,7 @@ df_questions = pd.read_csv("data_upload.txt")
 
 def question_answer(question):
     context=df_questions.tail(15)[df_questions["question"]==question]
-    #para retornar o 1° indice da resposta que esta dentro do arquivo
+     #para retornar o 1° indice da resposta que esta dentro do arquivo
     return context["question"].values[0]
     #para retornar a resposta com base no modelo e nao em um arquivo estatico(caracteristicas de chat bot)
     result=model_qa(question=question, context=context("question").values[0])
